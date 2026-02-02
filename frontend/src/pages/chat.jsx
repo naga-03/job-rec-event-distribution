@@ -14,19 +14,28 @@ export default function Chat() {
   };
 
   return (
-    <div>
-      <button onClick={logout}>Logout</button>
+    <div style={{ padding: 20, maxWidth: 800, margin: "0 auto" }}>
+      <button onClick={logout} style={{ float: "right" }}>Logout</button>
+      <div style={{ clear: "both" }}></div>
+
       <h2>Recruiter Chat</h2>
 
-      <ChatBox onSend={sendMessage} />
+      <div style={{ marginBottom: 30 }}>
+        <ChatBox onSend={sendMessage} />
+      </div>
 
-      {results.length === 0 && (
-        <p>No matching candidates found.</p>
-      )}
+      <div style={{ textAlign: "left" }}>
+        <h3>Matching Candidates</h3>
+        {results.length === 0 && (
+          <p style={{ color: "#888" }}>Try searching for 'Python' or 'Bangalore' to find matches.</p>
+        )}
 
-      {results.map((r) => (
-        <JobCard key={r.user_id} data={r} />
-      ))}
+        <div style={{ display: "grid", gap: 15 }}>
+          {results.map((r) => (
+            <JobCard key={r.user_id} data={r} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

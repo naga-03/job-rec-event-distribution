@@ -10,8 +10,9 @@ export default function Login() {
   const submit = async (e) => {
     e.preventDefault();
     try {
-      await login(username, password);
-    } catch {
+      await login(username.trim(), password.trim());
+    } catch (err) {
+      console.error("Login component error:", err);
       setError("Invalid credentials");
     }
   };

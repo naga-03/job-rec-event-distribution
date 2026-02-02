@@ -37,5 +37,61 @@
     },
     "read": false,
     "created_at": "2026-01-30T10:25:47.501961"
+  },
+  {
+    "notification_id": "ed2a37ed-ccd6-4986-b8d5-c5d358b02bae",
+    "job_seeker_id": "J003",
+    "message": "You were matched for a role requiring dev, chennai, python",
+    "metadata": {
+      "keywords": [
+        "dev",
+        "chennai",
+        "python"
+      ]
+    },
+    "read": false,
+    "created_at": "2026-02-02T04:59:12.717052"
+  },
+  {
+    "notification_id": "7a5fce17-f4ac-4470-a232-7c7ac4187ffe",
+    "job_seeker_id": "J001",
+    "message": "You were matched for a role requiring dev, chennai, python",
+    "metadata": {
+      "keywords": [
+        "dev",
+        "chennai",
+        "python"
+      ]
+    },
+    "read": false,
+    "created_at": "2026-02-02T04:59:12.764897"
+  },
+  {
+    "notification_id": "3b23c687-20a6-421d-bfaa-f08b712cfc53",
+    "job_seeker_id": "J002",
+    "message": "You were matched for a role requiring dev, chennai, python",
+    "metadata": {
+      "keywords": [
+        "dev",
+        "chennai",
+        "python"
+      ]
+    },
+    "read": false,
+    "created_at": "2026-02-02T04:59:12.794985"
+  },
+  {
+    "notification_id": "984650ff-0b83-4c23-a37b-ebfc4fda55cf",
+    "job_seeker_id": "J004",
+    "message": "You were matched for a role requiring dev, chennai, python",
+    "metadata": {
+      "keywords": [
+        "dev",
+        "chennai",
+        "python"
+      ]
+    },
+    "read": false,
+    "created_at": "2026-02-02T04:59:12.827077"
   }
 ]

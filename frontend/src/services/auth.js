@@ -2,10 +2,12 @@ import api from "./api";
 import { setToken } from "../utils/token";
 
 export async function login(username, password) {
-  const res = await api.post("/auth/login", {
+  console.log("auth service: sending login request for", username);
+  const res = await api.post("/api/auth/login", {
     username,
     password,
   });
+  console.log("auth service: login response received", res.status);
 
   const token = res.data.access_token;
   setToken(token);

@@ -9,7 +9,8 @@ export default function Notifications() {
   useEffect(() => {
     const fetchNotifications = () => {
       api.get("/api/notifications").then((res) => {
-        setNotifications(res.data);
+        // ✅ Standard API returns { success: true, count: X, data: [...] }
+        setNotifications(res.data.data || []);
       });
     };
 
@@ -21,7 +22,7 @@ export default function Notifications() {
   }, []);
 
   return (
-    <div>
+    <div style={{ padding: 20 }}>
       <button onClick={logout}>Logout</button>
       <h2>Notifications</h2>
 
@@ -30,7 +31,23 @@ export default function Notifications() {
       )}
 
       {notifications.map((n) => (
-        <div key={n.notification_id}>{n.message}</div>
+        <div
+          key={n.notification_id}
+          style={{
+            border: "1px solid #444",
+            borderRadius: 8,
+            padding: 15,
+            margin: "10px 0",
+            backgroundColor: "#1e1e1e",
+            textAlign: "left"
+          }}
+        >
+          <div style={{ fontWeight: "bold", marginBottom: 5 }}>New Job Match</div>
+          <div>{n.message}</div>
+          <small style={{ color: "#888" }}>
+            {new Date(n.created_at).toLocaleString()}
+          </small>
+        </div>
       ))}
     </div>
   );

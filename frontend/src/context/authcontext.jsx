@@ -5,12 +5,15 @@ import { clearToken } from "../utils/token";
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const [userType, setUserType] = useState(
-    localStorage.getItem("userType")
-  );
+  const [userType, setUserType] = useState(() => {
+    const savedType = localStorage.getItem("userType");
+    console.log("AuthProvider: Initializing userType from localStorage:", savedType);
+    return savedType;
+  });
 
   const login = async (username, password) => {
     const role = await loginApi(username, password);
+    console.log("AuthProvider: Login successful, role:", role);
     localStorage.setItem("userType", role);
     setUserType(role);
   };
