@@ -3,3 +3,6 @@ uvicorn
 python-jose[cryptography]
 pydantic
 pytest
+requests
+numpy
+httpx

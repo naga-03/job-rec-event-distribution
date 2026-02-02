@@ -1,29 +1,56 @@
 export default function JobCard({ data }) {
   return (
-    <div style={{
-      border: "1px solid #444",
-      borderRadius: 10,
-      padding: 16,
-      backgroundColor: "#1e1e1e",
-      boxShadow: "0 4px 6px rgba(0,0,0,0.3)"
+    <div className="glass" style={{
+      padding: "20px",
+      transition: "transform 0.2s ease, box-shadow 0.2s ease",
+      cursor: "default"
     }}>
-      <h4 style={{ margin: "0 0 8px 0", color: "#646cff" }}>{data.name}</h4>
-      <div style={{ fontWeight: "bold", fontSize: "0.9em", marginBottom: 4 }}>{data.headline}</div>
-      <div style={{ fontSize: "0.85em", color: "#ccc" }}>📍 {data.location} | 💼 {data.experience_years} Years EXP</div>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 12 }}>
+        <div>
+          <h4 style={{
+            margin: 0,
+            fontSize: "1.2rem",
+            background: "linear-gradient(90deg, #fff, #94a3b8)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent"
+          }}>
+            {data.name}
+          </h4>
+          <div style={{ color: "var(--primary)", fontWeight: "600", fontSize: "0.9rem", marginTop: 2 }}>
+            {data.headline}
+          </div>
+        </div>
+        <div style={{
+          background: "rgba(16, 185, 129, 0.1)",
+          color: "var(--accent)",
+          padding: "4px 12px",
+          borderRadius: "20px",
+          fontSize: "0.75rem",
+          fontWeight: "700",
+          border: "1px solid rgba(16, 185, 129, 0.2)"
+        }}>
+          MATCHED
+        </div>
+      </div>
 
-      <div style={{ marginTop: 12, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <div style={{ fontSize: "0.8em" }}>
+      <div style={{ fontSize: "0.85em", color: "var(--text-muted)", display: "flex", gap: 15 }}>
+        <span>📍 {data.location}</span>
+        <span>💼 {data.experience_years} Years Experience</span>
+      </div>
+
+      <div style={{ marginTop: 20 }}>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
           {data.skills?.map(s => (
             <span key={s} style={{
-              background: "#333",
-              padding: "2px 8px",
-              borderRadius: 4,
-              marginRight: 4,
-              fontSize: "0.9em"
+              background: "rgba(255,255,255,0.03)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              padding: "4px 12px",
+              borderRadius: "8px",
+              fontSize: "0.8rem",
+              color: "#cbd5e1"
             }}>{s}</span>
           ))}
         </div>
-        <div style={{ color: "#4ade80", fontWeight: "bold" }}>Score: {data.match_score}</div>
       </div>
     </div>
   );

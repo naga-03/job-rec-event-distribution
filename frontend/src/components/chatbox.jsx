@@ -10,32 +10,35 @@ export default function ChatBox({ onSend }) {
   };
 
   return (
-    <div style={{ display: "flex", gap: 10 }}>
+    <div className="glass" style={{ display: "flex", gap: 12, padding: 8 }}>
       <input
-        placeholder="Search candidates (e.g. 'Python Bangalore')..."
+        placeholder="How can I help you find talent today?..."
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         onKeyPress={(e) => e.key === 'Enter' && submit()}
         style={{
           flex: 1,
-          padding: "12px 16px",
-          borderRadius: 8,
-          border: "1px solid #444",
-          backgroundColor: "#1a1a1a",
+          padding: "14px 20px",
+          borderRadius: 12,
+          border: "1px solid rgba(255,255,255,0.05)",
           color: "white",
-          fontSize: "1rem"
+          fontSize: "0.95rem",
         }}
       />
       <button
         onClick={submit}
         style={{
-          padding: "0 24px",
-          backgroundColor: "#646cff",
-          color: "white",
-          fontWeight: "bold"
+          borderRadius: 12,
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
+          padding: "0 28px"
         }}
       >
-        Send
+        <span>Search</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+        </svg>
       </button>
     </div>
   );

@@ -337,3 +337,5 @@ dist/
 # package-lock.json
 # yarn.lock
 # pnpm-lock.yaml
+
+backend/app/data/notifications.json

@@ -26,7 +26,7 @@ class ChatResponse(BaseModel):
 # -------------------------
 
 @router.post("", response_model=ChatResponse)
-def chat(
+async def chat(
     payload: ChatRequest,
     user=Depends(require_recruiter)
 ):
@@ -34,4 +34,4 @@ def chat(
     Recruiter-only chat endpoint.
     """
     service = ChatService()
-    return service.process_message(payload.message)
+    return await service.process_message(payload.message)
