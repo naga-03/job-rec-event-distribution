@@ -1,0 +1,34 @@
+[
+  {
+    "user_id": "J001",
+    "name": "Arjun Kumar",
+    "profession": "Python Developer",
+    "skills": ["Python", "FastAPI", "PostgreSQL", "Docker"],
+    "experience_years": 3,
+    "location": "Bangalore"
+  },
+  {
+    "user_id": "J002",
+    "name": "Sneha Reddy",
+    "profession": "Frontend Developer",
+    "skills": ["React", "JavaScript", "HTML", "CSS"],
+    "experience_years": 2,
+    "location": "Hyderabad"
+  },
+  {
+    "user_id": "J003",
+    "name": "Rahul Sharma",
+    "profession": "Python Developer",
+    "skills": ["Python", "Django", "REST APIs"],
+    "experience_years": 4,
+    "location": "Chennai"
+  },
+  {
+    "user_id": "J004",
+    "name": "Neha Verma",
+    "profession": "Data Scientist",
+    "skills": ["Python", "Pandas", "ML", "TensorFlow"],
+    "experience_years": 5,
+    "location": "Bangalore"
+  }
+]

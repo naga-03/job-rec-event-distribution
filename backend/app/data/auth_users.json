@@ -1,0 +1,38 @@
+[
+  {
+    "user_id": "R001",
+    "username": "recruiter1",
+    "password": "recruiter123",
+    "user_type": "recruiter"
+  },
+  {
+    "user_id": "R002",
+    "username": "recruiter2",
+    "password": "recruiter123",
+    "user_type": "recruiter"
+  },
+  {
+    "user_id": "J001",
+    "username": "jobseeker1",
+    "password": "jobseeker123",
+    "user_type": "job_seeker"
+  },
+  {
+    "user_id": "J002",
+    "username": "jobseeker2",
+    "password": "jobseeker123",
+    "user_type": "job_seeker"
+  },
+  {
+    "user_id": "J003",
+    "username": "jobseeker3",
+    "password": "jobseeker123",
+    "user_type": "job_seeker"
+  },
+  {
+    "user_id": "J004",
+    "username": "jobseeker4",
+    "password": "jobseeker123",
+    "user_type": "job_seeker"
+  }
+]

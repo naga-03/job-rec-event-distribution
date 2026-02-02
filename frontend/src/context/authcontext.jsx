@@ -1,0 +1,31 @@
+import { createContext, useContext, useState } from "react";
+import { login as loginApi } from "../services/auth";
+import { clearToken } from "../utils/token";
+
+const AuthContext = createContext();
+
+export function AuthProvider({ children }) {
+  const [userType, setUserType] = useState(
+    localStorage.getItem("userType")
+  );
+
+  const login = async (username, password) => {
+    const role = await loginApi(username, password);
+    localStorage.setItem("userType", role);
+    setUserType(role);
+  };
+
+  const logout = () => {
+    clearToken();
+    localStorage.removeItem("userType");
+    setUserType(null);
+  };
+
+  return (
+    <AuthContext.Provider value={{ userType, login, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
+
+export const useAuth = () => useContext(AuthContext);
