@@ -3,6 +3,7 @@ uvicorn
 python-jose[cryptography]
 pydantic
 pytest
-requests
 numpy
 httpx
+sentence-transformers
+python-dotenv

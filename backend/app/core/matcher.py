@@ -41,7 +41,7 @@ class Matcher:
             
             print(f"HYBRID DEBUG: {seeker['name']} -> Key: {keyword_score}, Vec: {vector_score:.2f}, Total: {total_score:.1f}")
 
-            if total_score > 0:
+            if total_score >= 15:
                 matches.append(self._build_match_result(seeker, int(total_score)))
             
         # 3️⃣ Rank and deduplicate

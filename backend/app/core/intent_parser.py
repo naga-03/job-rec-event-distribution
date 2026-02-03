@@ -1,6 +1,6 @@
 import re
 from typing import Dict, List, Optional
-from app.core.ollama_client import ollama_client
+from app.core.groq_client import groq_client
 
 
 class IntentParser:
@@ -26,15 +26,15 @@ class IntentParser:
         Parses recruiter input text into structured intent with semantic expansion.
         Prioritizes LLM entity extraction.
         """
-        # 1️⃣ Try Ollama Analysis
-        result = await ollama_client.structured_prompt(self.SYSTEM_PROMPT, text)
+        # 1️⃣ Try Groq Analysis
+        result = await groq_client.structured_prompt(self.SYSTEM_PROMPT, text)
         
         if result and "keywords" in result:
             original = result["keywords"]
             expanded = result.get("expanded_keywords", [])
             all_terms = list(set(original + expanded))
             
-            print(f"Ollama Extraction: {original} -> Expanded: {expanded}")
+            print(f"Groq Extraction: {original} -> Expanded: {expanded}")
             
             return {
                 "intent": "JOB_SEARCH",

@@ -2,7 +2,7 @@ from typing import Dict, List
 from app.core.event_bus import event_bus
 from app.core.intent_parser import IntentParser
 from app.core.matcher import Matcher
-from app.core.ollama_client import ollama_client
+from app.core.groq_client import groq_client
 
 
 class ChatService:
@@ -91,7 +91,7 @@ class ChatService:
         top_matches = [f"{m['name']} ({', '.join(m['skills'])})" for m in matches[:3]]
         context = f"Found: {'; '.join(top_matches)}"
         
-        return await ollama_client.prompt(system_prompt.format(message=message), context)
+        return await groq_client.prompt(system_prompt.format(message=message), context)
 
     def _no_intent_response(self) -> Dict:
         return {

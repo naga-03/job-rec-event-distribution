@@ -1,6 +1,6 @@
 import numpy as np
 from typing import List, Dict, Any
-from app.core.ollama_client import ollama_client
+from app.core.embeddings_client import embeddings_client
 
 class VectorStore:
     def __init__(self):
@@ -18,7 +18,7 @@ class VectorStore:
         
         for doc in documents:
             text = self._prepare_text(doc)
-            embedding = await ollama_client.get_embeddings(text)
+            embedding = await embeddings_client.get_embeddings(text)
             if embedding:
                 self.embeddings.append(embedding)
                 self.metadata.append(doc)
@@ -29,7 +29,7 @@ class VectorStore:
             self.embeddings_np = np.array(self.embeddings)
             print("Indexing complete.")
 
-    MIN_SIMILARITY = 0.1
+    MIN_SIMILARITY = 0.3
 
     def get_all_candidates(self) -> List[Dict[str, Any]]:
         return self.metadata
@@ -42,7 +42,7 @@ class VectorStore:
             print("VectorStore: No documents indexed.")
             return []
 
-        query_vec = await ollama_client.get_embeddings(query)
+        query_vec = await embeddings_client.get_embeddings(query)
         if not query_vec:
             return []
 

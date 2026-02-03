@@ -33,14 +33,23 @@ async def log_requests(request, call_next):
     return response
 
 # CORS
+import os
+origins = [
+    "http://localhost:5173", 
+    "http://127.0.0.1:5173",
+]
+# Add any extra origins from environment
+additional_origins = os.getenv("ALLOWED_ORIGINS", "").split(",")
+if additional_origins[0]:
+    origins.extend(additional_origins)
+
+# For prototypes on Railway, if you want it to "just work" everywhere:
+if os.getenv("RAILWAY_ENVIRONMENT"):
+    origins = ["*"]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173", 
-        "http://127.0.0.1:5173",
-        "http://localhost:5174",
-        "http://127.0.0.1:5174"
-    ],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
