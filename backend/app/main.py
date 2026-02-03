@@ -43,8 +43,8 @@ additional_origins = os.getenv("ALLOWED_ORIGINS", "").split(",")
 if additional_origins[0]:
     origins.extend(additional_origins)
 
-# For prototypes on Railway, if you want it to "just work" everywhere:
-if os.getenv("RAILWAY_ENVIRONMENT"):
+# For prototypes on Render/Railway, if you want it to "just work" everywhere:
+if os.getenv("RENDER") or os.getenv("RAILWAY_ENVIRONMENT"):
     origins = ["*"]
 
 app.add_middleware(
