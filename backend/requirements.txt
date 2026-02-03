@@ -5,7 +5,5 @@ pydantic
 pytest
 numpy
 httpx
---extra-index-url https://download.pytorch.org/whl/cpu
-torch
-sentence-transformers
+fastembed
 python-dotenv
